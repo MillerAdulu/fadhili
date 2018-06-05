@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Fadhili</string>
+    <string name="action_add_to_basket">Add to Basket</string>
+    <string name="action_remove_from_basket">Remove from Basket</string>
+    <string name="placeholder_package_title">Package Title</string>
+    <string name="placeholder_package_price">KES 100</string>
+    <string name="backdrop_title">LOVE HELPING OUT?</string>
+    <string name="backdrop_subtitle">Top Packages</string>
 </resources>

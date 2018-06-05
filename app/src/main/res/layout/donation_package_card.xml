@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="3dp"
+        app:cardCornerRadius="@dimen/card_album_radius">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            
+            <ImageView
+                android:id="@+id/donation_package_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/album_cover_height"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/donation_package_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/donation_package_image"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:text="@string/placeholder_package_title"
+                android:textColor="@color/album_title"
+                android:textSize="@dimen/album_title"/>
+
+            <TextView
+                android:id="@+id/donation_package_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/donation_package_image"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:text="@string/placeholder_package_price"
+                android:textColor="@color/album_title"
+                android:textSize="@dimen/album_title"/>
+
+            <ImageView
+                android:id="@+id/action_add_to_basket"
+                android:layout_width="@dimen/ic_album_overflow_width"
+                android:layout_height="@dimen/ic_album_overflow_height"
+                android:layout_toLeftOf="@id/action_remove_from_basket"
+                android:layout_toStartOf="@id/action_remove_from_basket"
+                android:layout_below="@id/donation_package_image"
+                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
+                android:layout_marginHorizontal="@dimen/ic_album_overflow_margin_top"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add_to_basket"/>
+
+            <ImageView
+                android:id="@+id/action_remove_from_basket"
+                android:layout_width="@dimen/ic_album_overflow_width"
+                android:layout_height="@dimen/ic_album_overflow_height"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/donation_package_image"
+                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
+                android:layout_marginHorizontal="@dimen/ic_album_overflow_margin_top"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_remove_from_basket"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
