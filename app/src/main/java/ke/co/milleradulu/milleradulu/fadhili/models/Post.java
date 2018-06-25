@@ -1,54 +1,38 @@
 package ke.co.milleradulu.milleradulu.fadhili.models;
 
 public class Post {
-    private int id;
-    private String title, excerpt, body, image, slug;
+  private int id;
+  private String title, excerpt, body, image, slug, createdAt, updatedAt;
 
-    public int getId() {
-        return id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getExcerpt() {
+    return excerpt;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public String getBody() {
+    return body;
+  }
 
-    public String getExcerpt() {
-        return excerpt;
-    }
+  public String getImage() {
+    return image;
+  }
 
-    public void setExcerpt(String excerpt) {
-        this.excerpt = excerpt;
-    }
+  public String getSlug() {
+    return slug;
+  }
 
-    public String getBody() {
-        return body;
-    }
+  public String getCreatedAt() {
+    return createdAt;
+  }
 
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getSlug() {
-        return slug;
-    }
-
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
 }

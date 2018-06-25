@@ -6,4 +6,5 @@
     <string name="placeholder_package_price">KES 100</string>
     <string name="backdrop_title">LOVE HELPING OUT?</string>
     <string name="backdrop_subtitle">Top Packages</string>
+  <string name="package_image">Package Image</string>
 </resources>

@@ -1,38 +1,31 @@
 package ke.co.milleradulu.milleradulu.fadhili.models;
 
 public class Destination {
-    private int id;
-    private String name, crisis, location;
 
-    public int getId() {
-        return id;
-    }
+  private int id;
+  private String name, crisis, location, createdAt, updatedAt;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getCrisis() {
+    return crisis;
+  }
 
-    public String getCrisis() {
-        return crisis;
-    }
+  public String getLocation() {
+    return location;
+  }
 
-    public void setCrisis(String crisis) {
-        this.crisis = crisis;
-    }
+  public String getCreatedAt() {
+    return createdAt;
+  }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
 }

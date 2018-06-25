@@ -1,37 +1,15 @@
 package ke.co.milleradulu.milleradulu.fadhili.models;
 
 public class Purchase {
-    private int id, donorId, donationId, paymentStatus;
+  private Integer id, donorId, donationId, paymentStatus, createdAt, updatedAt;
 
-    public int getId() {
-        return id;
-    }
+  public Purchase(Integer donorId, Integer donationId, Integer paymentStatus) {
+    this.donorId = donorId;
+    this.donationId = donationId;
+    this.paymentStatus = paymentStatus;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getDonorId() {
-        return donorId;
-    }
-
-    public void setDonorId(int donorId) {
-        this.donorId = donorId;
-    }
-
-    public int getDonationId() {
-        return donationId;
-    }
-
-    public void setDonationId(int donationId) {
-        this.donationId = donationId;
-    }
-
-    public int getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(int paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
+  public Integer getId() {
+    return id;
+  }
 }
