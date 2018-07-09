@@ -1,10 +1,11 @@
-package ke.co.milleradulu.milleradulu.fadhili.clients;
+package ke.co.milleradulu.milleradulu.fadhili.apihandler.clients;
 
 import java.util.List;
 
-import ke.co.milleradulu.milleradulu.fadhili.models.Donor;
+import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Donor;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -20,11 +21,16 @@ public interface DonorClient {
     @Path("id") int id
   );
 
-  @FormUrlEncoded
   @POST ("/donor/")
-  Call<Donor> storeDonor(@Body Donor donor);
+  Call<Donor> registerDonor(
+    @Body Donor donor
+  );
 
-  @FormUrlEncoded
+  @POST ("donor/login")
+  Call<Donor> login(
+    @Body Donor donor
+  );
+
   @POST ("donor/update")
   Call<Donor> update (@Body Donor donor);
 

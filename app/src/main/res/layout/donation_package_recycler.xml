@@ -6,8 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/viewBg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".donation.DonationShopActivity"
-    tools:showIn="@layout/activity_donation_basket">
+    tools:context=".donation.DonationShopActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/donation_packages_list_recycler_view"

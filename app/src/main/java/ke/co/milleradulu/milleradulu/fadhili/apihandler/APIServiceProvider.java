@@ -1,4 +1,4 @@
-package ke.co.milleradulu.milleradulu.fadhili;
+package ke.co.milleradulu.milleradulu.fadhili.apihandler;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
