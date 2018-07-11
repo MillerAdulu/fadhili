@@ -14,7 +14,7 @@ public interface PostClient {
 
   @GET ("post/{id}")
   Call<Post> post(
-    @Path("id") int id
+    @Path("id") String id
   );
 
 }

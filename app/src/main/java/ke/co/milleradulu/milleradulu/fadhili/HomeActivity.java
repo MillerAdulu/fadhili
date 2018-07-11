@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class HomeActivity extends AppCompatActivity {
   SessionManagement session;
   Button btnLogout;
-  TextView donorId, donorName;
+  TextView donorName;
 
   HashMap<String, String> donor;
 
@@ -18,7 +18,6 @@ public class HomeActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_home);
 
-    donorId = findViewById(R.id.donor_id);
     donorName = findViewById(R.id.donor_name);
 
     session = new SessionManagement(getApplicationContext());
@@ -27,11 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
     donor = session.getUserDetails();
 
-    donorId.setText(
-      donor.get(
-        SessionManagement.KEY_ID
-      )
-    );
+
     donorName.setText(
       donor.get(
         SessionManagement.KEY_NAME

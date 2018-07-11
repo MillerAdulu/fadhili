@@ -13,4 +13,13 @@
   <string name="title_activity_signup">SignupActivity</string>
   <string name="placeholder_package_title">Package Name</string>
   <string name="placeholder_package_price">Price</string>
+  <string name="title_activity_posts">PostsActivity</string>
+  <string name="post_image">Post Image</string>
+  <string name="comment_header">Comments</string>
+  <string name="add_a_comment">Add a comment</string>
+  <string name="comment">Comment</string>
+  <string name="package_contents">Package Contents</string>
+  <string name="add_to_cart">Add to Cart</string>
+  <string name="check_out">Check Out</string>
+  <string name="total_donation">Total Donation</string>
 </resources>
