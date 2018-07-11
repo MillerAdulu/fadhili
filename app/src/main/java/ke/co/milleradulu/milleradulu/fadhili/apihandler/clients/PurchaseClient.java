@@ -5,6 +5,8 @@ import java.util.List;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Purchase;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -19,10 +21,13 @@ public interface PurchaseClient {
     @Path("id") int id
   );
 
+  @FormUrlEncoded
   @POST ("/purchase")
   Call<Purchase> addToCart (
-    @Body Purchase purchase
-  );
+    @Field("donorId") Integer donorId,
+    @Field("donationId") Integer donationId,
+    @Field("donationAmount") Double donationAmount
+    );
 
   @POST ("/purchase/update")
   Call<Purchase> updatePurchase (

@@ -17,6 +17,7 @@ import ke.co.milleradulu.milleradulu.fadhili.SessionManagement;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.APIHelper;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.APIServiceProvider;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.clients.DonationClient;
+import ke.co.milleradulu.milleradulu.fadhili.apihandler.clients.PurchaseClient;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Donation;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Purchase;
 import retrofit2.Call;
@@ -98,6 +99,30 @@ public class CartActivity extends AppCompatActivity implements  CartClickListene
     });
   }
   public void checkOut(View view) {
+  }
+
+  public void commit() {
+    for(Purchase purchase : purchaseList) {
+      PurchaseClient purchaseClient = APIServiceProvider.createService(PurchaseClient.class);
+
+      Call<Purchase> purchaseCall = purchaseClient.addToCart(
+        purchase.getDonorId(),
+        purchase.getDonationId(),
+        purchase.getDonationAmount()
+      );
+
+      APIHelper.enqueWithRetry(purchaseCall, new Callback<Purchase>() {
+        @Override
+        public void onResponse(@NonNull Call<Purchase> call, @NonNull Response<Purchase> response) {
+          Log.d(TAG, response.body().getDonationId().toString() + " added successfully!");
+        }
+
+        @Override
+        public void onFailure(@NonNull Call<Purchase> call, @NonNull Throwable t) {
+          Log.d(TAG, t.getMessage());
+        }
+      });
+    }
   }
 
   @Override
