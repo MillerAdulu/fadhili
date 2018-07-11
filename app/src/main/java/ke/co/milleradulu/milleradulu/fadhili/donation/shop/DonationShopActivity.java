@@ -1,5 +1,6 @@
-package ke.co.milleradulu.milleradulu.fadhili.donation;
+package ke.co.milleradulu.milleradulu.fadhili.donation.shop;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,11 +15,13 @@ import java.util.List;
 import java.util.Locale;
 
 import ke.co.milleradulu.milleradulu.fadhili.R;
+import ke.co.milleradulu.milleradulu.fadhili.SessionManagement;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.APIHelper;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.APIServiceProvider;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.clients.DonationClient;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Donation;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Purchase;
+import ke.co.milleradulu.milleradulu.fadhili.donation.DonationPackageActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,11 +33,15 @@ public class DonationShopActivity extends AppCompatActivity implements PackageCl
   DonationAdapter donationItemsAdapter;
   List<Donation> donationItemsList;
   ArrayList<Purchase> purchaseList = new ArrayList<>();
+  SessionManagement session;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.donation_package_recycler);
+
+    session = new SessionManagement(this);
+    session.checkLogin();
 
     donationItemsRecyclerView = findViewById(R.id.donation_packages_list_recycler_view);
 
@@ -72,17 +79,70 @@ public class DonationShopActivity extends AppCompatActivity implements PackageCl
 
   }
 
+  private void displayPackage() {
+
+    startActivity(
+      new Intent(
+        DonationShopActivity.this,
+        DonationPackageActivity.class
+      )
+    );
+
+  }
+
+  private void cartTotal() {
+    double sum = 0;
+    for(Purchase purchase: purchaseList) {
+      sum += purchase.getDonationAmount();
+    }
+    session.setKeyCartTotal(
+      String.format(
+        Locale.ENGLISH,
+        "%.2f",
+        sum
+      )
+    );
+
+    Log.d("SUM", session.getKeyCartTotal());
+  }
+
   @Override
-  public void onClick(View view, int position) {
+  public void onViewPackage(View view, int position) {
+    final Donation donation = donationItemsList.get(position);
+
+    session.setKeyDonationItemId(
+      String.format(
+        Locale.ENGLISH,
+        "%d",
+        donation.getDonationId()
+      )
+    );
+
+    displayPackage();
+  }
+
+  @Override
+  public void onAddToCart(View view, int position) {
     final Donation donation = donationItemsList.get(position);
 
 
     Purchase newPurchase = new Purchase();
 
-    newPurchase.setDonorId(1);
-    newPurchase.setDonationId(donation.getDonationId());
+    newPurchase.setDonorId(
+      Integer.parseInt(
+        session.getDonorId()
+      )
+    );
+    newPurchase.setDonationId(
+      donation.getDonationId()
+    );
+    newPurchase.setPaymentStatus(0);
+    newPurchase.setDonationAmount(
+      donation.getDonationPrice()
+    );
 
     purchaseList.add(newPurchase);
+
     Toast.makeText(
       this,
       donation.getDonationName() + " added to cart",
@@ -96,5 +156,10 @@ public class DonationShopActivity extends AppCompatActivity implements PackageCl
         donation.getDonationId()
       )
     );
+
+    session.setCartItems(purchaseList);
+
+    Log.d("ITEMS", session.getCartItems().toString());
+    cartTotal();
   }
 }

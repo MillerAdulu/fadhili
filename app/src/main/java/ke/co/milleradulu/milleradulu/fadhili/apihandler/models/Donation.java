@@ -3,7 +3,7 @@ package ke.co.milleradulu.milleradulu.fadhili.apihandler.models;
 public class Donation {
 
     private int donationId, donationQuantity;
-    private String donationName, donationDestination, donationImage, createdAt, updatedAt;
+    private String donationName, donationDestination, donationImage, donationContents, createdAt, updatedAt;
     private double donationPrice;
 
   public int getDonationId() {
@@ -52,5 +52,13 @@ public class Donation {
 
   public void setDonationQuantity(int donationQuantity) {
     this.donationQuantity = donationQuantity;
+  }
+
+  public String getDonationContents() {
+    return donationContents;
+  }
+
+  public void setDonationContents(String donationContents) {
+    this.donationContents = donationContents;
   }
 }

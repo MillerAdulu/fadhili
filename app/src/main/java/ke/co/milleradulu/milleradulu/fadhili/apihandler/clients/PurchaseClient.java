@@ -33,4 +33,5 @@ public interface PurchaseClient {
   Call<Purchase> destroy (
     @Path("id") int id
   );
+
 }

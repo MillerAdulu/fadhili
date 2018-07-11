@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".donation.DonationPackageActivity">
 
   <android.support.v7.widget.CardView
     android:layout_width="wrap_content"
@@ -17,7 +20,7 @@
       android:layout_height="wrap_content">
 
       <ImageView
-        android:id="@+id/donation_package_image"
+        android:id="@+id/single_donation_package_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/album_cover_height"
         android:clickable="true"
@@ -25,10 +28,10 @@
         android:scaleType="fitXY"/>
 
       <TextView
-        android:id="@+id/donation_package_title"
+        android:id="@+id/single_donation_package_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/donation_package_image"
+        android:layout_below="@id/single_donation_package_image"
         android:paddingLeft="@dimen/album_title_padding"
         android:paddingRight="@dimen/album_title_padding"
         android:paddingTop="@dimen/album_title_padding"
@@ -37,12 +40,11 @@
         android:textSize="@dimen/album_title"/>
 
       <TextView
-        android:id="@+id/donation_package_price"
+        android:id="@+id/single_donation_package_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/donation_package_image"
-        android:layout_toEndOf="@id/donation_package_title"
-        android:layout_toRightOf="@id/donation_package_title"
+        android:layout_below="@id/single_donation_package_image"
+        android:layout_toEndOf="@id/single_donation_package_title"
         android:paddingLeft="@dimen/album_title_padding"
         android:paddingRight="@dimen/album_title_padding"
         android:paddingTop="@dimen/album_title_padding"
@@ -51,7 +53,7 @@
         android:textSize="@dimen/album_title"/>
 
       <TextView
-        android:id="@+id/donation_package_id"
+        android:id="@+id/single_donation_package_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"/>
@@ -59,5 +61,26 @@
     </RelativeLayout>
 
   </android.support.v7.widget.CardView>
+
+  <TextView
+    android:id="@+id/single_donation_package_destination"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/package_contents"/>
+
+  <TextView
+    android:id="@+id/single_donation_package_contents"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/add_to_cart"
+    android:onClick="addToCart"/>
 
 </LinearLayout>

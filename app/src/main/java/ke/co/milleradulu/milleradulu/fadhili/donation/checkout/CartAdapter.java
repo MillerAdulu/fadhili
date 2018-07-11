@@ -1,4 +1,4 @@
-package ke.co.milleradulu.milleradulu.fadhili.donation;
+package ke.co.milleradulu.milleradulu.fadhili.donation.checkout;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -17,50 +17,50 @@ import java.util.Locale;
 import ke.co.milleradulu.milleradulu.fadhili.R;
 import ke.co.milleradulu.milleradulu.fadhili.apihandler.models.Donation;
 
-public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.MyViewHolder>{
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
   private Context fadhiliContext;
   private List<Donation> donationList;
-  private PackageClickListener listener;
+  private CartClickListener listener;
 
-  public void setClickListener(PackageClickListener listener) {
+  public void setClickListener(CartClickListener listener) {
     this.listener = listener;
   }
 
-  class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+  public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     TextView donationPackageTitle, donationPackagePrice, donationPackageId;
     ImageView donationPackageImage;
 
-
-    MyViewHolder(View view){
+    MyViewHolder(View view) {
       super(view);
       donationPackageTitle = view.findViewById(R.id.donation_package_title);
       donationPackagePrice = view.findViewById(R.id.donation_package_price);
       donationPackageImage = view.findViewById(R.id.donation_package_image);
       donationPackageId = view.findViewById(R.id.donation_package_id);
 
-      view.setOnClickListener(this);
-      donationPackagePrice.setOnClickListener(this);
-      donationPackageTitle.setOnClickListener(this);
       donationPackageImage.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-      if(listener != null) listener.onClick(v, getAdapterPosition());
+      if(listener != null) listener.removeFromCart(v, getAdapterPosition());
     }
   }
 
-  DonationAdapter(Context fadhiliContext, List<Donation> donationList){
-    this.donationList = donationList;
+  CartAdapter(Context fadhiliContext, List<Donation> donationList){
     this.fadhiliContext = fadhiliContext;
+    this.donationList = donationList;
   }
 
   @NonNull
   @Override
-  public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View donationPackageView = LayoutInflater.from(parent.getContext())
-      .inflate(R.layout.donation_package_card, parent, false);
-    return new MyViewHolder(donationPackageView);
+  public CartAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    View donationCartRecyclerView = LayoutInflater.from(
+      parent.getContext()
+    ).inflate(
+      R.layout.donation_package_card, parent, false
+    );
+
+    return new MyViewHolder(donationCartRecyclerView);
   }
 
   @Override

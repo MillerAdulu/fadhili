@@ -11,20 +11,28 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".LoginActivity">
+    <activity android:name=".LoginActivity" />
+    <activity android:name=".HomeActivity" />
+    <activity android:name=".donation.shop.DonationShopActivity">
+
+    </activity>
+    <activity
+      android:name=".SignupActivity"
+      android:label="@string/title_activity_signup"
+      android:theme="@style/AppTheme.NoActionBar" />
+    <activity
+      android:name=".posts.PostsActivity"
+      android:label="@string/title_activity_posts"
+      android:theme="@style/AppTheme.NoActionBar"></activity>
+    <activity android:name=".posts.PostActivity" />
+    <activity android:name=".donation.DonationPackageActivity" />
+    <activity android:name=".donation.checkout.CartActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".HomeActivity" />
-    <activity android:name=".donation.DonationShopActivity">
-    </activity>
-    <activity
-      android:name=".SignupActivity"
-      android:label="@string/title_activity_signup"
-      android:theme="@style/AppTheme.NoActionBar"/>
   </application>
 
 </manifest>
